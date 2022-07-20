@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <title>Document</title>
+</head>
+
+<body>
+
+  <div x-data="{ open: false }">
+    <button @click="open = ! open">Toggle</button>
+
+    <span x-show="open" x-transition>
+      Hello 👋
+    </span>
+  </div>
+
+  <div x-data="{open: false}">
+    <button @click="open=!open">Tg</button>
+
+    <span x-show="open" x-transition>
+      Hello 👋
+    </span>
+  </div>
+
+  <div x-data="{ open: false }">
+    <button @click="open = ! open">Toggle</button>
+
+    <div x-show="open" x-transition:enter="transition ease-out duration-900"
+      x-transition:enter-start="opacity-0 scale-90" x-transition:enter-end="opacity-100 scale-100"
+      x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100 scale-100"
+      x-transition:leave-end="opacity-0 scale-90">Hello 👋</div>
+  </div>
+
+  <div x-data="{ label: 'Hello' }" x-effect="console.log(label)">
+    <button @click="label += ' World!'">Change Message</button>
+  </div>
+
+  <div x-data="{ label: 'From Alpine' }">
+    <div x-ignore>
+      <span x-text="label"></span>
+    </div>
+  </div>
+
+
+  <div x-data="{}">
+    <button @click="$refs.text.remove()">Remove Text</button>
+
+    <span x-ref="text">Hello 👋</span>
+  </div>
+</body>
+
+</html>

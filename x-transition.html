@@ -53,6 +53,20 @@
 
     <span x-ref="text">Hello 👋</span>
   </div>
+
+  <div x-data="{}" class="my-12">
+
+    <button @click="$focus.within($refs.buttons).first()">Focus "First"</button>
+    <button @click="$focus.within($refs.buttons).last()">Focus "Last"</button>
+
+    <div x-ref="buttons" @keydown.right="$focus.wrap().next()" @keydown.left="$focus.wrap().previous()">
+      <button class="focus:outline-none focus:ring focus:ring-violet-300">First</button>
+      <button class="focus:outline-none focus:ring focus:ring-violet-300">Second</button>
+      <button class="focus:outline-none focus:ring focus:ring-violet-300">Third</button>
+    </div>
+  </div>
+
+
 </body>
 
 </html>
